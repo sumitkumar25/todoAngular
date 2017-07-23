@@ -1,0 +1,93 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li + li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+/*list block style*/
+header {
+    position: fixed;
+    background-color: #658CCC;
+    font-size: 36px;
+    color: white;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+#newList {
+    border: solid 1px #658CCC;
+}
+
+body {
+    padding-top: 100px;
+}
+
+h2 {
+    background-color: #658CCC;
+    color: white !important;
+    font-weight: normal !important;
+    font-size: 26px !important;
+    padding-left: 10px;
+}
+
+h2 button.btn-outline-danger {
+    background-color: white;
+}
+
+h2.editing form.editForm {
+    display: block;
+}
+
+h2.editing span {
+    display: none;
+}
+
+h2 form.editForm {
+    display: none;
+}
+
+.created-label {
+    font: italic normal 16px serif;
+}
+
+/*todo*/
+li.editing .todoItem {
+    display: none;
+}
+
+li.editing .todoItemEdit {
+    display: block;
+}
+
+li .todoItemEdit {
+    display: none;
+}
+
+li .todoItem {
+    display: block;
+}
+.border-bottom-grey{
+    border-bottom: solid 1px #dcdcdc;
+}
