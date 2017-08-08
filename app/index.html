@@ -20,86 +20,20 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body class="container">
-<header class="text-left p-2">
-    Todo
+<header>
+    <div class="row" aria-hidden="true">
+        <h1 class="col-6">Todo</h1>
+
+        <div class="col-4">
+            username
+        </div>
+        <div class="col-2">
+            <img src="" alt="avatar" class="avatar"/>
+        </div>
+    </div>
 </header>
 <ng-view></ng-view>
-<script type="text/ng-template" id="todomvc-index.html">
-    <section>
-        <form ng-submit="addNewList(listName)">
-            <div class="form-group">
-                <input type="text" id="newList" placeholder="Add a new List" class="form-control" ng-model="listName"/>
-            </div>
-        </form>
-    </section>
-    <section class="row">
-        <div class="col-lg-4 col-sm-12 col-md-4 todoList p-4" ng-repeat="(key,list) in lists">
-            <div class="table-bordered">
-                <h2 class="text-center clearfix m-1" ng-class="{editing:editingList == list}">
-                    <span class="float-left" ng-dblclick="editList(list)">{{list.name}}</span>
 
-                    <form ng-submit="update(key,list.name)" class="editForm">
-                        <div class="form-group">
-                            <input type="text" ng-model="list.name" class="form-control"
-                                   esc-abort="revertListEditing(key)" edit-focus="editingList == list"/>
-                        </div>
-                    </form>
-
-                    <form ng-submit="deleteList(key)">
-                        <button class="btn btn-outline-danger p-1 m-1 float-right">X</button>
-                    </form>
-                </h2>
-
-                <div class="text-right created-label m-1">created on : {{list.date}}</div>
-                <div class="mr-2 ml-2">
-                    <form ng-submit="addNewTodo(newTodo,key)">
-                        <div class="form-group">
-                            <input type="text" placeholder="add a new todo" class="form-control new-todo"
-                                   ng-model="newTodo"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="m-2 pb-2 border-bottom-grey text-center">
-                    <button class="btn-outline-primary" ng-click="filterState='all'">All</button>
-                    <button class="btn-outline-primary" ng-click="filterState='complete'">complete
-                    </button>
-                    <button class="btn-outline-primary" ng-click="filterState='inComplete'">pending
-                    </button>
-                </div>
-                <ul class="m-1 list-unstyled">
-                    <li ng-repeat="(todoKey,todo) in list.todo|status:filterState"
-                        ng-class="{editing:editingTodo == todo}">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-2 text-left">
-                                    <input type="checkbox" name="todo_completed" ng-model="todo.complete"
-                                           ng-change="updateTodo(todo,todoKey,key)"/>
-                                </div>
-                                <div class="col-8 text-left todoItem" ng-dblclick="editTodo(todo)">
-                                    {{todo.title}}
-                                </div>
-                                <div class="col-8 text-left todoItemEdit">
-                                    <form ng-submit="updateTodo(todo,todoKey,key)">
-                                        <input type="text" ng-model="todo.title"
-                                               esc-abort="revertTodoEditing(todoKey ,key)"
-                                               edit-focus="editingTodo == todo"/>
-                                    </form>
-                                </div>
-                                <div class="col-2 text-right">
-                                    <form>
-                                        <button class="btn btn-outline-danger m-0 p-0"
-                                                ng-submit="deleteTodo(todoKey,key)">x
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-</script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/tether/dist/js/tether.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>

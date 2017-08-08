@@ -7,10 +7,14 @@ angular.module('todoAngular', [
 config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     var routeConfig = {
-        templateUrl: 'todomvc-index.html',
+        templateUrl: 'todo.html',
         controller: 'todoCtrl'
     }
-    $routeProvider.when('/todoAngular', routeConfig)
+    var loginConfig = {
+        templateUrl: 'template/login.html',
+        controller: 'loginCtrl'
+    }
+    $routeProvider.when('/', routeConfig)
         .when('/complete', routeConfig)
         .when('/all', routeConfig)
         .when('/pending', routeConfig)
