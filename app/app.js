@@ -10,10 +10,6 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
         templateUrl: 'todo.html',
         controller: 'todoCtrl'
     }
-    var loginConfig = {
-        templateUrl: 'template/login.html',
-        controller: 'loginCtrl'
-    }
     $routeProvider.when('/', routeConfig)
         .when('/complete', routeConfig)
         .when('/all', routeConfig)
