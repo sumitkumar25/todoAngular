@@ -21,12 +21,25 @@
 </head>
 <body class="container">
 <ng-view></ng-view>
-
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/tether/dist/js/tether.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCyrKDqFR5szz8PGvVOgQwHguBYSniNgpE",
+        authDomain: "todoangular-3c2cf.firebaseapp.com",
+        databaseURL: "https://todoangular-3c2cf.firebaseio.com",
+        projectId: "todoangular-3c2cf",
+        storageBucket: "todoangular-3c2cf.appspot.com",
+        messagingSenderId: "908327607914"
+    };
+    firebase.initializeApp(config);
+</script>
 <script src="app.js"></script>
 <script src="controller/todoCtrl.js"></script>
 <script src="directive/directives.js"></script>

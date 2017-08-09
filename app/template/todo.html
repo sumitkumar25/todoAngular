@@ -58,10 +58,9 @@
                                            edit-focus="editingTodo == todo"/>
                                 </form>
                             </div>
-                            <div class="col-2 text-right">
+                            <div class="col-2 text-right" ng-submit="deleteTodo(todoKey,key)">
                                 <form>
-                                    <button class="btn btn-outline-danger m-0 p-0"
-                                            ng-submit="deleteTodo(todoKey,key)">x
+                                    <button class="btn btn-outline-danger m-0 p-0">x
                                     </button>
                                 </form>
                             </div>
