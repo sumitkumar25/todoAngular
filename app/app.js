@@ -7,12 +7,9 @@ angular.module('todoAngular', [
 config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     var routeConfig = {
-        templateUrl: 'todo.html',
+        templateUrl: '/template/todo.html',
         controller: 'todoCtrl'
     }
     $routeProvider.when('/', routeConfig)
-        .when('/complete', routeConfig)
-        .when('/all', routeConfig)
-        .when('/pending', routeConfig)
-        .otherwise({redirectTo: '/todoAngular'});
+        .otherwise({redirectTo: '/'});
 }]);
