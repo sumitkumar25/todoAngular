@@ -14,12 +14,6 @@ angular.module("todoAngular")
             var db = firebase.database().ref(DB_NAMESPACE + '/');
             var store = {
                 lists: $firebaseArray(db),
-                _addToLocalStorage: function (data) {
-                    $window.localStorage[db] = JSON.stringify(data);
-                },
-                _getFromLocalStorage: function () {
-                    return JSON.parse($window.localStorage[db] || '{}');
-                },
                 _newList: function (name, date) {
                     this.name = name;
                     this.date = date;
