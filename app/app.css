@@ -87,6 +87,7 @@ li .todoItemEdit {
 
 li .todoItem {
     display: block;
+    word-break: break-all;
 }
 .border-bottom-grey{
     border-bottom: solid 1px #dcdcdc;
