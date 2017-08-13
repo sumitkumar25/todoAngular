@@ -2,14 +2,19 @@
  * Created by sukumar on 7/16/2017.
  */
 angular.module('todoAngular')
-    .controller('todoCtrl', ['$scope', 'appStore', 'statusFilter',
-        function ($scope, store, statusFilter) {
-            var lists = $scope.lists = store.lists;
+    .controller('todoCtrl', ['$scope', 'appStore', 'statusFilter', 'user', 'loginService', '$timeout',
+        function ($scope, store, statusFilter, user, loginService, $timeout) {
+            $scope.lists = store.lists;
+            $scope.displayName = '';
+            store.getDisplayName().then(function (name) {
+                $scope.displayName = name;
+            });
+            $scope.user = user;
             $scope.editingList = "";
             $scope.editingTodo = "";
             $scope.nativeList = "";
             $scope.nativeTodo = "";
-            $scope.filterState='all'
+            $scope.filterState = 'all'
             $scope.addNewList = function (name) {
                 store.addList(name).then(function () {
                     document.querySelector('#newList').value = "";
@@ -48,5 +53,7 @@ angular.module('todoAngular')
                 $scope.editingTodo = "";
                 $scope.lists[key].todo[todoKey] = $scope.nativeTodo;
             }
-
+            $scope.logout = function () {
+                loginService.logout();
+            }
         }])

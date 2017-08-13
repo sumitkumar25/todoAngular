@@ -1,3 +1,4 @@
+<ng-include src="'partials/userHeader.html'"></ng-include>
 <section>
     <form ng-submit="addNewList(listName)">
         <div class="form-group">
@@ -7,7 +8,7 @@
 </section>
 <section class="row">
     <div class="col-lg-4 col-sm-12 col-md-4 todoList p-4" ng-repeat="(key,list) in lists">
-        <div class="table-bordered">
+        <div class="">
             <h2 class="text-center clearfix m-1" ng-class="{editing:editingList == list}">
                 <span class="float-left" ng-dblclick="editList(list)">{{list.name}}</span>
 
@@ -19,7 +20,7 @@
                 </form>
 
                 <form ng-submit="deleteList(key)">
-                    <button class="btn btn-outline-danger p-1 m-1 float-right">X</button>
+                    <button class="btn btn-outline-custom p-1 m-1 float-right">X</button>
                 </form>
             </h2>
 
@@ -33,13 +34,13 @@
                 </form>
             </div>
             <div class="m-2 pb-2 border-bottom-grey text-center">
-                <button class="btn-outline-primary" ng-click="filterState='all'">All</button>
-                <button class="btn-outline-primary" ng-click="filterState='complete'">complete
+                <button class="btn-outline-custom" ng-click="filterState='all'">All</button>
+                <button class="btn-outline-custom" ng-click="filterState='complete'">complete
                 </button>
-                <button class="btn-outline-primary" ng-click="filterState='inComplete'">pending
+                <button class="btn-outline-custom" ng-click="filterState='inComplete'">pending
                 </button>
             </div>
-            <ul class="m-1 list-unstyled">
+            <ul class="m-1 list-unstyled itemBloc">
                 <li ng-repeat="(todoKey,todo) in list.todo|status:filterState"
                     ng-class="{editing:editingTodo == todo}">
                     <div class="container-fluid">
@@ -60,7 +61,7 @@
                             </div>
                             <div class="col-2 text-right" ng-submit="deleteTodo(todoKey,key)">
                                 <form>
-                                    <button class="btn btn-outline-danger m-0 p-0">x
+                                    <button class="btn btn-outline-custom m-0 p-0">x
                                     </button>
                                 </form>
                             </div>

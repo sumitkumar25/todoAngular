@@ -21,6 +21,7 @@
 </head>
 <body class="container">
 <ng-view></ng-view>
+<ng-include src="'partials/footer.html'"></ng-include>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/tether/dist/js/tether.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -28,6 +29,7 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script>
     // Initialize Firebase
     var config = {
@@ -42,8 +44,11 @@
 </script>
 <script src="app.js"></script>
 <script src="controller/todoCtrl.js"></script>
+<script src="controller/loginCtrl.js"></script>
 <script src="directive/directives.js"></script>
 <script src="service/store.js"></script>
+<script src="service/login.js"></script>
+<script src="service/dbConstants.js"></script>
 <script src="filter/filters.js"></script>
 <script src="components/version/version.js"></script>
 </body>
