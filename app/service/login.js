@@ -11,6 +11,16 @@ angular.module('login')
             var User = function (displayName) {
                 this.displayName = displayName;
             };
+            var checkLocalStorageForUser = function () {
+                var authObj = Object.keys(window.localStorage).filter(function (item) {
+                    return item.startsWith('firebase:authUser');
+                });
+                if (authObj) {
+                    var cachedUser = window.localStorage[authObj[0]];
+                    return JSON.parse(cachedUser);
+                }
+                return null;
+            }
             var login = {
                 loginWithEmailAndPassword: function (email, pass) {
                     var def = $q.defer();
@@ -47,6 +57,10 @@ angular.module('login')
                 },
                 getUser: function () {
                     var def = $q.defer();
+                    if (!user) {
+                        user = checkLocalStorageForUser();
+                        uid = user ? user.uid : '';
+                    }
                     if (user) {
                         def.resolve(user);
                     } else {
